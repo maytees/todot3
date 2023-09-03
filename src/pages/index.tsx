@@ -42,11 +42,6 @@ export default function Home() {
     }
   })
 
-  const setTodoCompleted = api.class.setTodoCompleted.useMutation({
-    onSuccess: () => {
-      void refetchClasses();
-    }
-  })
   return (
     <>
       <div className="flex justify-center">
