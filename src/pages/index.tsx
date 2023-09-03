@@ -63,12 +63,6 @@ export default function Home() {
                         >{c.name}</p>
 
                         <div className="flex flex-row gap-x-2">
-                          {/* <button className="btn btn-accent btn-sm rounded-full" onClick={() => {
-                            createTodo.mutate({
-                              classId: c.id,
-                              title: "asdf"
-                            })
-                          }}>+</button> */}
                           <button className="btn btn-error btn-sm rounded-full" onClick={() => {
                             deleteClass.mutate({
                               classId: c.id
@@ -79,7 +73,7 @@ export default function Home() {
                       <ul className="rounded-box w-52 gap-2 mt-5 flex justify-center items-center text-center flex-col gap-y-4">
                         {c.todos?.map((todo) => (
                           <li key={todo.id} className="mt-2 flex flex-row items-center justify-center gap-x-60 ml-52">
-                            <p className="text-xl">
+                            <p className="text-lg w-36">
                               {todo.title}
                             </p>
                             <div className="flex flex-row gap-x-2 items-center">
@@ -107,15 +101,17 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <input type="text" placeholder="Click to add new Class" className="input-lg input input-bordered w-full mt-10"
-                  onKeyDown={(e) => {
-                    if (e.key == "Enter") {
-                      createClass.mutate({
-                        name: e.currentTarget.value
-                      });
-                      e.currentTarget.value = "";
-                    }
-                  }} />
+                <div className="pb-40">
+                  <input type="text" placeholder="Click to add new Class" className="input-lg input input-bordered w-full mt-10"
+                    onKeyDown={(e) => {
+                      if (e.key == "Enter") {
+                        createClass.mutate({
+                          name: e.currentTarget.value
+                        });
+                        e.currentTarget.value = "";
+                      }
+                    }} />
+                </div>
               </div>
             </div >
         }
